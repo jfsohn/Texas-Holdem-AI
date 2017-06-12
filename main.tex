@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wenneker Article
+% LaTeX Template
+% Version 2.0 (28/2/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Vel (vel@LaTeXTemplates.com)
+% Frits Wenneker
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt, a4paper, twocolumn]{article} % 10pt font size (11 and 12 also possible), A4 paper (letterpaper for US letter) and two column layout (remove for one column)
+
+\usepackage{kpfonts}
+\usepackage{color}
+
+\newcommand*\Hs[1]{\ensuremath{{\color{blue} #1}{\color{red}\varheartsuit}}}
+\newcommand*\Ss[1]{\ensuremath{{\color{blue} #1}{\color{black}\spadesuit}}}
+\newcommand*\Ds[1]{\ensuremath{{\color{blue} #1}{\color{red}\vardiamondsuit}}}
+\newcommand*\Cs[1]{\ensuremath{{\color{blue} #1}{\color{black}\clubsuit}}}
+\newcommand*\NT[1]{{\color{blue} #1}{\color{black}\textsc{nt}}}
+
+
+\input{structure.tex} % Specifies the document structure and loads requires packages
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{B351 AI Project: Texas Hold 'em} % The article title
+
+\author{
+	\authorstyle{Jake Sohn\textsuperscript{1} and Indiana Reed\textsuperscript{1}} % Authors
+	\newline\newline % Space before institutions
+	\textsuperscript{3}\institution{Indiana University, Bloomington, IN, USA} % Institution 3
+}
+
+% Example of a one line author/institution relationship
+%\author{\newauthor{Jake Sohn} \newinstitution{NJ, USA}}
+
+\date{\today} % Add a date here if you would like one to appear underneath the title block, use \today for the current date, leave empty for no date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+\thispagestyle{firstpage} % Apply the page style for the first page (no headers and footers)
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\lettrineabstract{The project here was to build an AI for the card game known as Texas Hold Em'. In order to create this AI, group members Jake Sohn and Indiana Reed, programmed utilizing the Python programming language. This AI simulates along with a regular game and plays along whiile having different decision factors based on the players that the AI is playing. The AI is a clever processing computer, however the AI does not read the other player's cards at any point of the game.}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+Here are some cards:
+\begin{table} 
+\centering
+\begin{tabular}{@{}ll@{}} \toprule
+\textsf{Pair} & \Hs{3},\Ds{A},\Ss{3},\Cs{4},\Hs{K}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+	Games containing an AI provide an easy way for a player to compete, whenever he’d/she’d like. Utilizing AIs for gaming can give players a great way to challenge themselves. For example, many games provide a difficulty level for the AI that the player is playing against, or maybe with. Having such options can allow for a player to advance his/her skills for the game. In an article about an AI being able to beat almost anyone in chess, it was mentioned that the computer’s domination over humanity may start at the chessboard \citep{Murphy, 2015}. That is because the AI is able to adapt its knowledge by a deep neural network (learns and makes decisions in a similar way to the individuals that the AI plays) to learn to play at the international master level of chess in 72 hours. On a side note, this type of programming could also advance knowledge needed to help create better programmed self-driving cars.
+
+	An AI for a game can even make history. The first AI to beat a world champion chess player was documented on 1997, Deep Blue (created by IBM scientists). This 2,800 pound supercomputer defeated a reigning world chess champion. \cite{Koren, 2016}. Not only has an AI competed well with a human in a mind-challenging game like chess, but also a knowledge based game, Jeopardy. Ken Jennings, the man who won the most consecutive rounds of Jeopardy, 74 games, was tasked against an AI in a game of Jeopardy \cite{Goldenberg, 2015}. It is important to mention that the knowledge for an AI is not the only important factor for an AI to be a strong game-player. Ken Jennings stated that there was an illusion for those watching Jeopardy, and that was that almost all of the players on Jeopardy knew the correct answers, however the timing on the buzzer was integral for dominating in the game. Watson was built to be fast and smart, and not only does this machine have these capabilities, it is not faced by intimidation or psychological stress (like a human) \cite{Jennings, 2011}. Jennings mentioned that Watson was able to send an electric current in order to buzz to answer, which gave it a strong advantage. Jennings was able to find the first (out of three) points multipliers known as a daily double due to his own luck, in a game he played against Watson. In the game, Jennings sought to find all of the daily doubles in order to beat Watson. Jennings however fell second place to Watson. Although Jennings, with his master skills in Jeopardy, did not beat Watson in the match, he was left with an IBM engineer letting him know that he was what inspired the project for Watson. The skills that AIs have in games are not only applicable to the challenges that games have, but are also applicable to problem-solving in the real world. IBM sees a future in such question-answering skills, which is why IBM is using Watson to do such work in fields like medical diagnosis, business analytics, and tech support.
+
+
+%------------------------------------------------
+
+\section{Playing Texas Hold 'em as an AI Problem}
+
+This game has been transformed into a pure AI agent. That is because a game of Texas Hold Em’ can be simulated by programmer’s request, via this program. In a game, there is a set amount of players that are able to be selected. An AI player plays against each of these players, via a simulation. [Strategy 1] In order for the AI to play efficiently, the AI adjusts its playing strategy based on whether or not it recognizes a specific type of poker player. [Strategy 2] Also, the AI player for this game utilizes percentages to decide whether or not it should call, raise, or fold, if the AI has a pair for the pre flop. [Strategy 3] The program reads the 6/7 cards for the AI (accounting the turn and river), in order to accurately identify what the best five card hand is for the AI during the turn/river. The AI does this to simply check for what the best hand is for the AI. [Strategy 4] During the flop, turn, and river stages, the AI will base how good its hand is based on a ranking system. The purpose for having the AI rank its five card hand during the flop/turn/river is to decide what the AI’s chance of success for the hand is, and to decide whether the AI should check, fold, or raise during the flop, turn, and river stages for the hand. 
+
+The initial purpose of having the AI recognize different types of players was to ensure that the AI did not fall victim to certain well-developed strategies that players had of their own. For example, in Texas Hold Em’ many poker players like to bluff in order to gain a high amount of chips quickly in a game of poker. In order for the AI to combat this type of player, the AI will establish a read on the given players for a given game of Texas Hold Em’ and recognize if a player is frequently making high bets. The AI will make sure to flag this type of player as a bluffer, and the AI will then adapt its playing strategy so that this player does not capture its chips efficiently. 
+
+Percentages were used for the AI’s playing strategy when the AI started with a pair for the pre flop. These percentages were used in order for the AI to play wisely, as it was not a good idea for the AI to always raise, bet, or check when the AI started with a pair for the pre flop. If the AI were to raise in this situation every time, a player could easily understand a way that the AI plays. We did not want to give away such a detail for the players playing against the AI, that is why we need a random call, while also being strategic (i.e. utilizing percentages) when deciding whether or not the AI should call a bet, raise, or fold. 
+
+About the specifics for the percentages of the pre flop stage: the AI will check to see if it has a pair during this stage, and, if it does, and the pair is a pair that consists of a number 2 through 9, the AI will call up to 25% of the AI's starting chips for the hand. There is no chance for the AI raising, if the AI's hand in the pre flop is a pair consisting of a number 2 through 9. These are also the behaviors for an AI’s pre flop hand that does not have a pair, or Ace high. However, if the AI's hand is a pair of the card for the range 10 through ace, the AI will call up to 50% of the AI's starting chips for the hand. There is a 40% chance that the AI will raise if the AI's hand is a pair that is 10 through ace (but, of course a total bet of 50% of the AIs starting chips will still set a limit for the raise). It is important that the AI, and any player in a given game, will only be allowed to raise once.
+
+
+
+
+
+%------------------------------------------------
+
+\section{Code}
+
+[Strategy 4] In order to code the strategy for the AI to calculate the five card hand ranking for the flop, turn, and river stages for an AI’s hand, the ‘get_five_card_rank_percentage,’ function from the deuces library was utilized. This function takes a player’s hand, in this case the AI’s, and the cards shown on board. The function is titled as a variable, called handRank. A ranking system was applied to handRank in order to make the ranking system be from 0.0 (best rank) to 1.0 (worst rank). There are three if statements that check to see what range the rank is for handRank: if handRank is < 0.1, then the AI will fold; if handRank is  >= 0.1 or <= 0.2, then the AI will check; if handRank is >= 0.2, then the AI will raise.
+
+
+
+%------------------------------------------------
+
+\section{Results}
+Discuss the result of your project -- what went right and what went wrong.  For the former, what would you do to make it even better? For the latter, what would you do differently?
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{bear.jpg} % Figure image
+	\caption{A majestic grizzly bear} % Figure caption
+	\label{bear} % Label for referencing with \ref{bear}
+\end{figure}
+
+In hac habitasse platea dictumst. Vivamus eu finibus leo. Donec malesuada dui non sagittis auctor. Aenean condimentum eros metus. Nunc tempus id velit ut tempus. Quisque fermentum, nisl sit amet consectetur ornare, nunc leo luctus leo, vitae mattis odio augue id libero. Mauris quis lectus at ante scelerisque sollicitudin in eu nisi. Nulla elit lacus, ultricies eu erat congue, venenatis semper turpis. Ut nec venenatis velit. Mauris lacinia diam diam, ac egestas neque sodales sed. Curabitur eu diam nulla. Duis nec turpis finibus, commodo diam sed, bibendum erat. Nunc in velit ullamcorper, posuere libero a, mollis mauris. Nulla vehicula quam id tortor ornare blandit. Aenean maximus tempor orci ultrices placerat. Aenean condimentum magna vulputate erat mattis feugiat.
+
+Quisque lacinia, purus id mattis gravida, sem enim fringilla erat, non dapibus est tellus pellentesque velit. Vivamus pretium sem quis leo placerat, at dignissim ex iaculis. Donec neque tortor, pharetra quis vestibulum id, tempus scelerisque mi. Cras in mattis est. Integer nec lorem rutrum, semper ligula bibendum, iaculis neque. Sed in nunc placerat, viverra dui in, fringilla sem. Sed quis rutrum magna, vitae pellentesque eros.
+
+Praesent maximus mauris vitae nisl pulvinar, at tristique tortor aliquam. Etiam sit amet nunc in nulla vulputate sollicitudin. Aliquam erat volutpat. Praesent pharetra gravida cursus. Quisque vulputate lacus nunc. Integer orci ex, porttitor quis sapien id, eleifend gravida mi. Etiam efficitur justo eget nulla congue mattis. Duis commodo vel arcu a pretium. Aenean eleifend viverra nisl, nec ornare lacus rutrum in.
+
+Vivamus pulvinar ac eros eu pellentesque. Duis nibh felis, sagittis sed lacus at, sagittis mattis nisi. Fusce ante dui, tincidunt in scelerisque ut, sagittis at magna. Fusce tincidunt felis et odio tincidunt imperdiet. Cras ut facilisis nisl. Aliquam vitae consequat metus, eget gravida augue. In imperdiet justo quis nulla venenatis accumsan. Aliquam aliquet consectetur tortor, at sollicitudin sapien porta sed. Donec efficitur mauris id rhoncus volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed bibendum purus dapibus tincidunt euismod. Nullam malesuada ultrices lacus, ut tincidunt dolor. Etiam imperdiet quam eget elit tincidunt scelerisque. Curabitur ut ullamcorper dui. Cras gravida porta leo, ut lobortis nisl venenatis pulvinar. Proin non semper nulla.
+
+Praesent pretium nisl purus, id mollis nibh efficitur sed. Sed sit amet urna leo. Nulla sed imperdiet sem. Donec ut diam tristique, faucibus ligula vel, varius est. In ipsum ligula, elementum vitae velit ac, viverra tincidunt enim. Phasellus gravida diam id nisl interdum maximus. Ut semper, tortor vitae congue pharetra, justo odio commodo urna, vel tempus libero ex et risus. Vivamus commodo felis non venenatis rutrum. Sed pulvinar scelerisque augue in porta. Sed maximus libero nec tellus malesuada elementum. Proin non augue posuere, pellentesque felis viverra, varius urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim urna eget diam dictum, eget facilisis libero pulvinar.
+
+Aliquam ex tellus, hendrerit sed odio sit amet, facilisis elementum enim. Suspendisse potenti. Integer molestie ac augue sit amet fermentum. Vivamus ultrices ante nulla, vitae venenatis ipsum ullamcorper sed. Phasellus gravida felis sapien, ac porta purus pharetra quis. Sed eget augue tellus. Nam vitae hendrerit arcu, id iaculis ipsum. Pellentesque sed magna tortor.
+
+In ac tempus diam. Sed nec lobortis massa, suscipit accumsan justo. Quisque porttitor, ligula a semper euismod, urna diam dictum sem, sed maximus risus purus sit amet felis. Fusce elementum maximus nisi a mattis. Nulla vitae elit erat. Integer sit amet commodo risus, eget elementum nulla. Donec ultricies erat sit amet sem commodo iaculis. Donec euismod volutpat lacus, ut tempor est lacinia a. Vivamus auctor condimentum tincidunt. Praesent sed finibus urna. Sed pellentesque blandit magna et rhoncus.
+
+Integer vel turpis nec tellus sodales malesuada a vel odio. Fusce et lectus eu nibh rhoncus tempus vel nec elit. Suspendisse commodo orci velit, lacinia dictum odio accumsan et. Vivamus libero dui, elementum vel nibh non, fermentum venenatis risus. Aliquam sed sapien ac orci sodales tempus a eget dui. Morbi non dictum tortor, quis tincidunt nibh. Proin ut tincidunt odio.
+
+Pellentesque ac nisi dolor. Pellentesque maximus est arcu, eu scelerisque est rutrum vitae. Mauris ullamcorper vulputate vehicula. Praesent fermentum leo ac velit accumsan consectetur. Aliquam eleifend ex eros, ut lacinia tellus volutpat non. Pellentesque sit amet cursus diam. Maecenas elementum mattis est, in tincidunt ex pretium ac. Integer ultrices nunc rutrum, pretium sapien vitae, lobortis velit.
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[title={Bibliography}] % Print the bibliography, section title in curly brackets
+
+Murphy, Mike. "An AI Computer Learned How to Beat Almost Anyone at Chess in 72 Hours." Quartz. Quartz, 16 Sept. 2015. Web. 04 May 20
+
+Koren, Marina. "When Computers Started Beating Chess Champions." The Atlantic. Atlantic Media Company, 10 Feb. 2016. Web. 04 May 2017. 
+17.
+
+Goldenberg, David. "Why Ken Jennings’s ‘Jeopardy!’ Streak Is Nearly Impossible To Break." FiveThirtyEight. FiveThirtyEight, 06 May 2015. Web. 04 May 2017. 
+
+Jennings, Ken. "Watson Jeopardy! Computer: Ken Jennings Describes What It’s Like to Play Against a Machine." Slate Magazine. N.p., 16 Feb. 2011. Web. 04 May 2017. 
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
