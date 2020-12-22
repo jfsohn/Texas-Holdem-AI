@@ -1,3 +1,3 @@
 # TexasHoldemAI
 
-Please see the final report pdf.
+Please see the final report PDF.
